@@ -8,12 +8,12 @@ import simplejson as json
 from datetime import datetime, timedelta
 
 # Coordinates for Kenitra and Rabat
-KENITRA_COORDINATES = {"latitude": 34.2610, "longitude": -6.5802}
-RABAT_COORDINATES = {"latitude": 34.0209, "longitude": -6.8416}
+CityB_COORDINATES = {"latitude": 34.2610, "longitude": -6.5802}
+CityA_COORDINATES = {"latitude": 34.0209, "longitude": -6.8416}
 
 # Calculate movement increments
-LATITUDE_INCREMENT = (RABAT_COORDINATES['latitude'] - KENITRA_COORDINATES['latitude']) / 100
-LONGITUDE_INCREMENT = (RABAT_COORDINATES['longitude'] - KENITRA_COORDINATES['longitude']) / 100
+LATITUDE_INCREMENT = (CityA_COORDINATES['latitude'] - CityB_COORDINATES['latitude']) / 100
+LONGITUDE_INCREMENT = (CityA_COORDINATES['longitude'] - CityB_COORDINATES['longitude']) / 100
 
 # Environment Variables for configuration
 KAFKA_BOOTSTRAP_SERVERS = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'localhost:9092')
@@ -21,7 +21,7 @@ VEHICLE_TOPIC = os.getenv('VEHICLE_TOPIC', 'vehicle_data')
 
 random.seed(42)
 start_time = datetime.now()
-start_location = KENITRA_COORDINATES.copy()
+start_location = CityB_COORDINATES.copy()
 
 
 def get_next_time():
